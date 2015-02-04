@@ -1,4 +1,4 @@
-GitHub Workflow
+***GitHub Workflow
 
 * Create a branch for your feature
 * Make a meaningful commit
@@ -8,6 +8,6 @@ GitHub Workflow
 
 
 
-Team Workflow
+***Team Workflow
 * Standups every two hours
 * Retro will occur at end of day
