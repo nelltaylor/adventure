@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
 	def index
+
     @comments = Comment.all
     #change this to be specific to the post
 	end
