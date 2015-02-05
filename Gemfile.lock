@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     acts_as_votable (0.10.0)
     arel (6.0.0)
+    bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (4.1.1)
@@ -189,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.10.0)
+  bcrypt
   bourbon
   byebug
   coffee-rails (~> 4.1.0)
