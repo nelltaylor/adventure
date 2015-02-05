@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :posts
+  resources :comments
+  resources :tags
 
-  root 'users#index'
+  root 'posts#index'
 
 end
