@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: imgur_clone_development
+  database: adventure_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: imgur_clone_test
+  database: adventure_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: imgur_clone_production
-  username: imgur_clone
-  password: <%= ENV['IMGUR_CLONE_DATABASE_PASSWORD'] %>
+  database: adventure_production
+  username: adventure_clone
+  password: <%= ENV['ADVENTURE_DATABASE_PASSWORD'] %>
