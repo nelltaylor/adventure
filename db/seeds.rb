@@ -7,33 +7,30 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 20.times do
-	Post.new(title: Faker::Hacker.say_something_smart,
+	Post.create!(title: Faker::Hacker.say_something_smart,
 					image_url: 'http://lorempixel.com/300/200/animals/',
 					author_id: rand(1..20))
 end
 
 20.times do
-	User.new(username: Faker::Internet.user_name,
+	User.create!(username: Faker::Internet.user_name,
            email: Faker::Internet.email,
            password: Faker::Internet.password)
 end
 
+
 20.times do
-	Vote.new(votable_id: 1, votable_type: Post )
+	PostTag.create!(post_id:rand(1..20), tag_id:rand(1..20))
 end
 
 20.times do
-	Post_tag.new(post_id:rand(1..20), tag_id:rand(1..20))
+	Comment.create!(text: Faker::Hacker.say_something_smart, commenter_id: rand(1..20), post_id: rand(1..20))
 end
 
 20.times do
-	Comment.new(text: Faker::Hacker.say_something_smart, commenter_id: rand(1..20), post_id: rand(1..20))
+	Reply.create!(text: Faker::Hacker.say_something_smart, replier_id: rand(1..20), comment_id: rand(1..20))
 end
 
 20.times do
-	Replies.new(text: Faker::Hacker.say_something_smart, replier_id: rand(1..20), comment_id: rand(1..20))
-end
-
-20.times do
-	Tags.new(name: Faker::Hacker.noun)
+	Tag.create!(name: Faker::Hacker.noun)
 end
