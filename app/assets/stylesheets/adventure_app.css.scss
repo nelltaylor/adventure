@@ -1,3 +1,7 @@
 @import "bourbon";
 @import "neat";
 
+div.container {
+  @include outer-container(100%);
+  @include pad(40px);
+}
