@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :comments
   resources :tags
 
-  root 'users#index'
+  root 'posts#index'
 
 end
