@@ -13,4 +13,5 @@ class PostsController < ApplicationController
     @post.upvote_by current_user
   end
 
+
 end
