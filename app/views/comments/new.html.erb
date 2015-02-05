@@ -1,1 +1,8 @@
-<h1>HI I"M A COMMENTS/NEW WOOOO!</h1>
+<h1>HI I"M A COMMENTS/NEW WOOOO! MAKE ME INTO MAKE ME INTO A PARTIAL!</h1>
+
+<div id="submit-caption">
+<%= form_tag :action => 'create', :id => @comment %>
+<%= text_area "comment", "text", "cols" => 20, "rows" => 10, "placeholder" => "Submit a comment " %>
+ <%= submit_tag( "Submit" ) %>
+</div>
+x
