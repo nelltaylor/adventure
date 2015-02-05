@@ -27,6 +27,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'bourbon'
 
+gem 'neat'
+
 gem 'factory_girl_rails'
 
 group :development, :test do
