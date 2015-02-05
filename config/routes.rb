@@ -18,12 +18,10 @@ Rails.application.routes.draw do
   post '/posts/:id/voteup' => 'posts#voteup'
   post '/posts/:id/votedown' => 'posts#votedown'
 
-
   resources :replies
   post '/replies/:id/voteup' => 'replies#voteup'
   post '/replies/:id/votedown' => 'replies#votedown'
 
-  resources :replies
 
   resources :tags
 
