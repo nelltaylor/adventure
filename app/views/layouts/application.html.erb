@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div class="logo">Animaux!</div>
+    <nav>
+      <% if session[:user_id] %>
+      <ul>
+        <li>My Animaux</li>
+        <li>
+  </header>
 
 <%= yield %>
 
