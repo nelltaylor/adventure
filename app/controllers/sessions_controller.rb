@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     # puts 'arrived'
-    render 'new'
+    # render 'new'
   end
 
   def create

@@ -3,8 +3,10 @@
 <head>
   <title>Adventure</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
-  <!-- <link rel="stylesheet" href="magnific-popup/magnific-popup.css"> -->
   <%= javascript_include_tag 'application', media: 'all' %>
+  <link href="//cdn.rawgit.com/noelboss/featherlight/1.0.4/release/featherlight.min.css" type="text/css" rel="stylesheet" title="Featherlight Styles" />
+  <script src="//code.jquery.com/jquery-latest.js"></script>
+  <script src="//cdn.rawgit.com/noelboss/featherlight/1.0.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,7 +23,7 @@
         <% else %>
         <div id='login-signup'>
           <ul>
-            <li><%= link_to "Log In", log_in_path, remote: true, id: 'login-link' %></li>
+            <li><%= link_to "Log In", log_in_path, id: 'login-link', :'data-featherlight' => 'ajax' %></li>
             <li><%= link_to "Sign Up", new_user_path, remote: true, id: 'signup-link' %></li>
           </ul>
         </div>
