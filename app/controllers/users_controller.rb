@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_animaux
+    @user = current_user
+    @posts = @user.posts.all
+    render '/posts/index'
+  end
+
 private
   def user_params
     params.require(:user).permit(:username, :email, :password)

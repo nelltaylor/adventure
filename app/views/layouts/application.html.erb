@@ -13,8 +13,7 @@
       <nav>
         <% if session[:user_id] %>
           <ul>
-            <li>My Animaux</li>
-            <li>hg</li>
+            <li><%= link_to "My Animaux", my_animaux_path(id: current_user.id) %></li>
             <li><%= link_to "Log Out", log_out_path %></li>
           </ul>
         <% else %>
