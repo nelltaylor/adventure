@@ -21,14 +21,14 @@ class PostsController < ApplicationController
 
   def voteup
     @post = Post.find(params[:id])
-    @post.upvote_by current_user
+    # @post.upvote_by current_user
     redirect_to action: "show", controller: 'posts'
   end
 
   def votedown
      @post = Post.find(params[:id])
 
-    @post.downvote_by current_user
+    # @post.downvote_by current_user
     redirect_to action: "show", controller: 'posts'
   end
 

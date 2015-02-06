@@ -15,14 +15,14 @@ class CommentsController < ApplicationController
   def voteup
     @comment = Comment.find(params[:id])
 
-    @comment.upvote_by current_user
+    # @comment.upvote_by current_user
     redirect_to action: "show", controller: 'posts'
   end
 
   def votedown
      @comment = Comment.find(params[:id])
-
-    @comment.downvote_by current_user
+#
+    # @comment.downvote_by current_user
     redirect_to action: "show", controller: 'posts'
   end
 

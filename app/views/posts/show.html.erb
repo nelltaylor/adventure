@@ -8,7 +8,6 @@
 <div id='votes'>
   <%= button_to '', method: 'POST', action: 'voteup' %>
   <%= button_to '', method: 'POST', action: 'votedown' %>
-  <%=@post.get_upvotes.size%>
   <p> Tags: <%= @post.tags.pluck(:name).join(' ') %></p>
 </div><br><br>
 
