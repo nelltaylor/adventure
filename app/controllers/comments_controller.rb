@@ -4,12 +4,13 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
+
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(text: params[:text], post_id: post.id, commenter_id: session[:user_id])
+    @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to post_path(@post)
     else
