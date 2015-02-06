@@ -9,15 +9,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to post_path(@post)
-    else
-      #what if comment fails?
-    end
+    @comment = Comment.create(comment_params)
   end
 
-    def voteup
+  def voteup
     @comment = Comment.find(params[:id])
 
     @comment.upvote_by current_user
