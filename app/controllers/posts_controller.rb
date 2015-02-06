@@ -9,8 +9,6 @@ class PostsController < ApplicationController
   end
 
   def new
-
-
   end
 
   def create
@@ -21,16 +19,13 @@ class PostsController < ApplicationController
 
   def voteup
     @post = Post.find(params[:id])
-    @post.upvote_by current_user
-    redirect_to action: "show", controller: 'posts'
+    Vote.create(vote: true, votable: @post, voter_id: current_user.id, vote_weight: 1)
+    redirect_to post_path(@post)
   end
 
   def votedown
-     @post = Post.find(params[:id])
-
-    @post.downvote_by current_user
-    redirect_to action: "show", controller: 'posts'
+    @post = Post.find(params[:id])
+    Vote.create(vote: false, votable: @post, voter_id: current_user.id, vote_weight: 1)
+    redirect_to post_path(@post)
   end
-
-
 end

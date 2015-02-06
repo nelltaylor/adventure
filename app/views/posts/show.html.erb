@@ -5,25 +5,33 @@
 <h5>by <%= @post.author.username %>  <%= @post.created_at %></h5><br><br>
 
 <img src="<%= @post.image_url %>">
-<div id='votes'>
-<%= button_to '', method: 'POST', action: 'voteup' %>
-<%= button_to '', method: 'POST', action: 'votedown' %>
-<%= @post.tags.pluck(:name).join(' ') %>
+<div id='votes' >
+  <%= button_to 'Like', method: 'POST', action: 'voteup' %>
+  <%= button_to 'Dislike', method: 'POST', action: 'votedown' %>
+  <%= @post.total_votes %> Likes
+  <p> Tags: <%= @post.tags.pluck(:name).join(' ') %></p>
 </div><br><br>
 
+<% @post.comments.each do |comment| %>
 <div id='comments'>
-  <% @post.comments.each do |comment| %>
-  <%= button_to '', method: 'POST', action: 'voteup', controller: 'comments' %>
-<%= button_to '', method: 'POST', action: 'votedown', controller: 'comments' %>
+  <h3>Comment</h3>
+  <%= button_to 'Like', name: "#{comment.id}", method: 'POST', action: 'voteup', controller: 'comments' %>
+  <%= button_to 'Dislike', name: "#{comment.id}", method: 'POST', action: 'votedown', controller: 'comments' %>
+  <%= comment.total_votes %> Likes<br><br>
   <%= comment.text %><br>
-  <a href='/replies/new'>reply</a>
+
   <%= comment.commenter.username %><br><br>
+  <a href='/replies/new'>reply</a>
   <% comment.replies.each do |reply| %>
-  <%= button_to '', method: 'POST', action: 'voteup', controller: 'replies' %>
-<%= button_to '', method: 'POST', action: 'votedown', controller: 'replies' %>
+  <h4>Reply</h4>
+  <%= button_to 'Like', name: "#{reply.id}", method: 'POST', action: 'voteup', controller: 'replies' %>
+  <%= button_to 'Dislike', name: "#{reply.id}", method: 'POST', action: 'votedown', controller: 'replies' %>
+  <%= reply.total_votes %> Likes <br><br>
+
   <li><%= reply.text %></li>
   <li><%= reply.replier.username %></li>
   <% end %>
   <br><br>
   <% end %>
+
 </div>
