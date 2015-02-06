@@ -10,8 +10,8 @@ class PostsController < ApplicationController
 
   def voteup
     @post = Post.find(params[:id])
-
     @post.upvote_by current_user
-    red
   end
+
+
 end
