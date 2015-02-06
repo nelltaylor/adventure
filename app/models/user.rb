@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
 	has_many :comments, foreign_key: :commenter_id
 	has_many :replies, foreign_key: :replier_id
 
-  validates :username, presence: :true, uniqueness: :true,
-  validates :email, presence: :true, uniqueness: :true
-  validates :password,
 
   def password
     BCrypt::Password.new(self.password_hash)
