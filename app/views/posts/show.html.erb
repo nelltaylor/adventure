@@ -6,24 +6,27 @@
 
 <img src="<%= @post.image_url %>">
 <div id='votes'>
-<%= button_to '', method: 'POST', action: 'voteup' %>
-<%= button_to '', method: 'POST', action: 'votedown' %>
-<%= @post.tags.pluck(:name).join(' ') %>
+  <%= button_to '', method: 'POST', action: 'voteup' %>
+  <%= button_to '', method: 'POST', action: 'votedown' %>
+  <%=@post.get_upvotes.size%>
+  <p> Tags: <%= @post.tags.pluck(:name).join(' ') %></p>
 </div><br><br>
 
 <div id='comments'>
   <% @post.comments.each do |comment| %>
-  <%= button_to '', method: 'POST', action: 'voteup', controller: 'comments' %>
-<%= button_to '', method: 'POST', action: 'votedown', controller: 'comments' %>
-  <%= comment.text %><br>
-  <a href='/replies/new'>reply</a>
-  <%= comment.commenter.username %><br><br>
-  <% comment.replies.each do |reply| %>
-  <%= button_to '', method: 'POST', action: 'voteup', controller: 'replies' %>
-<%= button_to '', method: 'POST', action: 'votedown', controller: 'replies' %>
-  <li><%= reply.text %></li>
-  <li><%= reply.replier.username %></li>
-  <% end %>
+  <h3>Comment</h3>
+    <%= button_to '', method: 'POST', action: 'voteup', controller: 'comments' %>
+    <%= button_to '', method: 'POST', action: 'votedown', controller: 'comments' %>
+    <%= comment.text %><br>
+    <a href='/replies/new'>reply</a>
+    <%= comment.commenter.username %><br><br>
+    <% comment.replies.each do |reply| %>
+      <h4>Reply</h4>
+      <%= button_to '', method: 'POST', action: 'voteup', controller: 'replies' %>
+      <%= button_to '', method: 'POST', action: 'votedown', controller: 'replies' %>
+      <li><%= reply.text %></li>
+      <li><%= reply.replier.username %></li>
+    <% end %>
   <br><br>
   <% end %>
 </div>
