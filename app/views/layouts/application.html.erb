@@ -8,7 +8,27 @@
 </head>
 <body>
 
-<%= yield %>
+    <header>
+      <div class="logo">Animaux!</div>
+      <nav>
+        <% if session[:user_id] %>
+          <ul>
+            <li>My Animaux</li>
+            <li>hg</li>
+            <li><%= link_to "Log Out", log_out_path %></li>
+          </ul>
+        <% else %>
+          <ul>
+            <li><%= link_to "Log In", log_in_path %></li>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+          </ul>
+        <% end %>
+      </nav>
+    </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
