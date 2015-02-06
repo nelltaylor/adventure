@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many :votes, :as => :votable
 
   def total_votes
-    self.votes.where(vote:true).count - self.votes.where(vote:false).count
+      self.votes.where(vote:true).count - self.votes.where(vote:false).count
   end
 
 end
