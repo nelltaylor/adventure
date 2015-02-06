@@ -6,16 +6,21 @@
 
 <img src="<%= @post.image_url %>">
 <div id='votes'>
-<%= button_to '', action: 'voteup' %>
-<%= button_to '', action: 'votedown' %>
+<%= button_to '', method: 'POST', action: 'voteup' %>
+<%= button_to '', method: 'POST', action: 'votedown' %>
 <%= @post.tags.pluck(:name).join(' ') %>
 </div><br><br>
 
 <div id='comments'>
   <% @post.comments.each do |comment| %>
+  <%= button_to '', method: 'POST', action: 'voteup', controller: 'comments' %>
+<%= button_to '', method: 'POST', action: 'votedown', controller: 'comments' %>
   <%= comment.text %><br>
+  <a href='/replies/new'>reply</a>
   <%= comment.commenter.username %><br><br>
   <% comment.replies.each do |reply| %>
+  <%= button_to '', method: 'POST', action: 'voteup', controller: 'replies' %>
+<%= button_to '', method: 'POST', action: 'votedown', controller: 'replies' %>
   <li><%= reply.text %></li>
   <li><%= reply.replier.username %></li>
   <% end %>
