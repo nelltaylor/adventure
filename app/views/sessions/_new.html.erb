@@ -1,3 +1,9 @@
+<h1>Log In</h1>
+<div id='errors'>
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+</div>
 <div id='login-form'>
 <h1>Log In</h1>
 
