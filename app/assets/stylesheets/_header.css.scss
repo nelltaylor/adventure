@@ -1,0 +1,33 @@
+@import "bourbon";
+@import "neat";
+@import "constants";
+
+header {
+  width: 100%;
+  padding: .75% 1% .15% 1%;
+  display: block;
+  background-color: #2FB8AC;
+  font-family: $header-font;
+  border-radius: 5px;
+
+  .logo {
+    font-size: 1.5em;
+  }
+
+  nav {
+    text-align: right;
+    display: block;
+    margin-top: -3.5%;
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      padding-left: 2%;
+    }
+
+  }
+
+}
