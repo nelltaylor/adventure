@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-	acts_as_votable
 
 	belongs_to :author, class_name: 'User'
 	has_many :comments

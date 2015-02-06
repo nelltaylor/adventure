@@ -23,8 +23,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rails_12factor', group: :production
 
-gem 'acts_as_votable', '~> 0.10.0'
-
 gem 'bourbon'
 
 gem 'neat'
