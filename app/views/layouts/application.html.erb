@@ -2,8 +2,9 @@
 <html>
 <head>
   <title>Adventure</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <!-- <link rel="stylesheet" href="magnific-popup/magnific-popup.css"> -->
+  <%= javascript_include_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,10 +19,12 @@
             <li><%= link_to "Log Out", log_out_path %></li>
           </ul>
         <% else %>
+        <div id='login-signup'>
           <ul>
-            <li><%= link_to "Log In", log_in_path %></li>
-            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Log In", log_in_path, remote: true, id: 'login-link' %></li>
+            <li><%= link_to "Sign Up", new_user_path, remote: true, id: 'signup-link' %></li>
           </ul>
+        </div>
         <% end %>
       </nav>
     </header>
