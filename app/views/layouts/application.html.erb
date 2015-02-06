@@ -8,8 +8,9 @@
 </head>
 <body>
 
+  <div class="container">
     <header>
-      <div class="logo">Animaux!</div>
+      <div class="logo"><%= link_to "Animaux!", posts_path %></div>
       <nav>
         <% if session[:user_id] %>
           <ul>
@@ -25,7 +26,6 @@
       </nav>
     </header>
 
-  <div class="container">
     <%= yield %>
   </div>
 
