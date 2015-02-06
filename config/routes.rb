@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :posts
+
+  get '/users/:id/posts' => 'users#my_animaux', as: :my_animaux
+
   resources :comments
   post '/comments/:id/voteup' => 'comments#voteup'
   post '/comments/:id/votedown' => 'comments#votedown'
 
-  resources :tags
-
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :log_out
-
-  root 'posts#index'
 
   resources :posts
   post '/posts/:id/voteup' => 'posts#voteup'
@@ -27,4 +25,5 @@ Rails.application.routes.draw do
 
   resources :post_tags
 
+  root 'posts#index'
 end
