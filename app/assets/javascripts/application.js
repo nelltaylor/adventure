@@ -84,6 +84,15 @@ $(document).ready(function(){
           $('#reply'+id+'_points').text(points)
         })
   })
+
+  $('#new_reply').click(function(event){
+
+    $.ajax({
+      url: '/replies/show'
+    })
+    .done(function(response){
+      $('#new_reply').hide();
+      $('#empty').append(response);
+    })
+  })
 })
-
-

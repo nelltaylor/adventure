@@ -24,6 +24,10 @@ class PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def show_reply_form
+    render :partial => "replies/show"
+  end
+
   def voteup
     @post = Post.find(params[:id])
     if current_user
