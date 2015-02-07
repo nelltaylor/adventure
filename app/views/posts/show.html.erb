@@ -10,9 +10,9 @@
 
 <img src="<%= @post.image_url %>">
 <div id='votes' >
-  <%= button_to 'Like', method: 'POST', action: 'voteup' %>
-  <%= button_to 'Dislike', method: 'POST', action: 'votedown' %>
-  <%= @post.total_votes %> Points
+  <%= button_to 'Like', {action: 'voteup'}, form_class: "like_post_form" %>
+  <%= button_to 'Dislike', {action: 'votedown'}, form_class: "dislike_post_form" %>
+  <span id="post_points"><%= @post.total_votes %></span> Points
   <p> Tags: <%= @post.tags.pluck(:name).join(' ') %></p>
 </div><br><br>
 
@@ -20,18 +20,19 @@
 <% @post.comments.each do |comment| %>
 <div id='comments'>
   <h3>Comment</h3>
-  <%= button_to 'Like', name: "#{comment.id}", method: 'POST', action: 'voteup', controller: 'comments' %>
-  <%= button_to 'Dislike', name: "#{comment.id}", method: 'POST', action: 'votedown', controller: 'comments' %>
-  <%= comment.total_votes %> Likes<br><br>
+  <%= button_to 'Like', {action: 'voteup', controller: 'comments', name: "#{comment.id}" }, form_class: "like_comment_form" %>
+  <%= button_to 'Dislike', {action: 'votedown', name: "#{comment.id}", controller: 'comments'}, form_class: "dislike_comment_form" %>
+  <span id="comment<%=comment.id%>_points"><%= comment.total_votes %></span> Likes<br><br>
   <%= comment.text %><br>
-
   <%= comment.commenter.username %><br><br>
-  <a href='/replies/new'>reply</a>
+  <a href='/replies/new'>Reply to Comment</a>
+
   <% comment.replies.each do |reply| %>
   <h4>Reply</h4>
-  <%= button_to 'Like', name: "#{reply.id}", method: 'POST', action: 'voteup', controller: 'replies' %>
-  <%= button_to 'Dislike', name: "#{reply.id}", method: 'POST', action: 'votedown', controller: 'replies' %>
-  <%= reply.total_votes %> Likes <br><br>
+  <div id='replies'
+  <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply#{reply.id}_form"  %>
+  <%= button_to 'Dislike', {action: 'votedown', controller: 'replies', name: "#{reply.id}"}, form_class: "dislike_reply#{reply.id}_form" %>
+  <span id="reply<%reply.id%>_points"><%= reply.total_votes %></span> Likes <br><br>
 
   <li><%= reply.text %></li>
   <li><%= reply.replier.username %></li>
