@@ -2,10 +2,9 @@
 <h4>One stop for all the internet's cutest animals</h4>
 
 <div>
-  <img src="http://lorempixel.com/300/200/animals/">
   <ul>
 <% @posts.each do |post| %>
-<li><a href='/posts/<%= post.id %>'><img src="<%= post.image_url %>"></a>  </li>
+<li><%= link_to image_tag(post.image_url), post_path(id: post.id) %>  </li>
 <% end %>
 </ul>
 </div>
