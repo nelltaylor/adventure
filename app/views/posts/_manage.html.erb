@@ -1,0 +1,6 @@
+<div id="edit-image">
+  <%= button_to "Edit Image", edit_post_path(id: post.id) %>
+</div>
+<div id="delete-image">
+  <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
