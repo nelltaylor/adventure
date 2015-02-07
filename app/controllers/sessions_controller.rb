@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     # puts 'arrived'
-    # render 'new'
+    render 'new'
   end
 
   def create
@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
       # redirect_to "/"
     else
       flash.now.alert = "Invalid email or password"
-      # render 'log-in'
     end
   end
 

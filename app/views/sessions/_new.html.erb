@@ -1,4 +1,5 @@
 <h1>Log In</h1>
+<<<<<<< HEAD:app/views/sessions/_new.html.erb
 <div id='errors'>
   <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -8,6 +9,9 @@
 <h1>Log In</h1>
 
   <%=form_tag log_in_path, remote: true do%>
+=======
+  <%=form_tag log_in_path do%>
+>>>>>>> parent of f6bd2a0... Added error handling for login:app/views/sessions/new.html.erb
     <%=label_tag :email %>
     <%=text_field_tag :email %><br>
     <%=label_tag :password %>
