@@ -19,7 +19,7 @@ end
 end
 
 
-20.times do
+70.times do
 	PostTag.create!(post_id:rand(1..20), tag_id:rand(1..20))
 end
 
@@ -31,6 +31,6 @@ end
 	Reply.create!(text: Faker::Hacker.say_something_smart, replier_id: rand(1..20), comment_id: rand(1..20))
 end
 
-20.times do
+70.times do
 	Tag.create!(name: Faker::Hacker.noun)
 end
