@@ -24,6 +24,14 @@ class PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def show_reply_form
     render :partial => "replies/show"
   end
