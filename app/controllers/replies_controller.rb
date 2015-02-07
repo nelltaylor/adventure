@@ -1,5 +1,15 @@
 class RepliesController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
+  def new
+    @reply = Reply.new
+  end
+
+  def create
+    @reply = Reply.create(reply_params)
+  end
+
   def voteup
     @post = Post.find(params[:id])
     if current_user
@@ -24,5 +34,9 @@ class RepliesController < ApplicationController
     end
   end
 
+ private
 
+  def reply_params
+    params.require(:reply).permit(:text, :replier_id)
+  end
 end

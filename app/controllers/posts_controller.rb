@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   respond_to :html, :js
+  skip_before_action :verify_authenticity_token
 
   def index
     @posts = Post.all
