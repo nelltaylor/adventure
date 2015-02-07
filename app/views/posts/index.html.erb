@@ -1,13 +1,20 @@
-<h1>Animaux!</h1>
-<h4>One stop for all the internet's cutest animals</h4>
+<h1>One stop for all the internet's cutest animals</h1>
 
-<div>
-  <img src="http://lorempixel.com/300/200/animals/">
+<div class="tile-images">
   <ul>
-<% @posts.each do |post| %>
-<li><a href='/posts/<%= post.id %>'><img src="<%= post.image_url %>"></a>  </li>
-<% end %>
-</ul>
+    <% @posts.each do |post| %>
+      <li><%= link_to image_tag(post.image_url), post_path(id: post.id) %>
+        <% if @user %>
+          <div id="edit-image">
+            <%= button_to "Edit Image", edit_post_path(id: post.id) %>
+          </div>
+          <div id="delete-image">
+            <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 
