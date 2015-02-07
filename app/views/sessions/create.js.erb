@@ -5,7 +5,7 @@
   <% end %>
   $('#login-form #errors').text(errors);
 <% else %>
-  $('#login-form').hide();
+  $('.featherlight').hide();
   $('#login-signup').hide();
   $('.logo').html("<%= j (render 'create') %>");
 <% end %>
