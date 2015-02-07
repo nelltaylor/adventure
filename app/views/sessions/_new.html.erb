@@ -1,7 +1,9 @@
 <div id='login-form'>
 <h1>Log In</h1>
+  <div id='errors'>
+  </div>
 
-  <%=form_tag log_in_path, remote: true do%>
+  <%=form_tag log_in_path, remote: true, id: "login_form" do%>
     <%=label_tag :email %>
     <%=text_field_tag :email %><br>
     <%=label_tag :password %>
