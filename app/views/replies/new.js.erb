@@ -1,0 +1,3 @@
+console.log("<%= j (params[:comment]) %>")
+$('#reply_form<%=params[:comment]%>').append("<%= j (render 'new') %>")
+

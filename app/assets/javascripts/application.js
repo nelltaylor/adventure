@@ -85,16 +85,16 @@ $(document).ready(function(){
         })
   })
 
-  $('#new_reply').click(function(event){
+  // $('#new_reply').click(function(event){
 
-    $.ajax({
-      url: '/replies/show'
-    })
-    .done(function(response){
-      $('#new_reply').hide();
-      $('#empty').append(response);
-    })
-  })
+  //   $.ajax({
+  //     url: '/replies/show'
+  //   })
+  //   .done(function(response){
+  //     $('#new_reply').hide();
+  //     $('#reply_form').append(response);
+  //   })
+  // })
 
     $('.tile-images').on('click', '#edit-image', function(){
     event.preventDefault();

@@ -29,8 +29,8 @@
   <%= comment.text %><br>
   <%= comment.commenter.username %><br><br>
 
-  <%= link_to "Reply To Comment", :update => "posts", :url => { :action => "show_reply_form", :controller => "reply" } %>
-  <div id="reply_form"</div>
+  <%= link_to "Reply To Comment", new_reply_path(comment: "#{comment.id}"), remote: true %>
+  <div id="reply_form<%=comment.id%>"></div>
 
   <% comment.replies.each do |reply| %>
   <h4>Reply</h4>
