@@ -95,4 +95,15 @@ $(document).ready(function(){
       $('#empty').append(response);
     })
   })
+
+    $('.tile-images').on('click', '#edit-image', function(){
+    event.preventDefault();
+      var myUrl = $(this).attr('href')
+      var regex = /\d*$/;
+      var id = myUrl.match(regex)[0]
+      $.ajax({type: "GET", url: myUrl})
+        .done(function(response) {
+          $('#post'+id).html("<%= escape_javascript(render partial: 'edit') %>")
+        })
+  })
 })
