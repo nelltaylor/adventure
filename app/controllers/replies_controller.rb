@@ -6,6 +6,10 @@ class RepliesController < ApplicationController
     @reply = Reply.new
   end
 
+  def show
+    @reply = Reply.new
+  end
+
   def create
     @reply = Reply.create(reply_params)
   end
