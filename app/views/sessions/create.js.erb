@@ -1,4 +1,12 @@
-$('#login-form').hide();
-$('#login-signup').hide();
-$('.logo').html("<%= j (render 'create') %>");
+<% if @user.nil? %>
+  var errors = "";
+  <% flash.each do |name, msg| %>
+    errors += "<%= escape_javascript(msg) %>"
+  <% end %>
+  $('#login-form #errors').text(errors);
+<% else %>
+  $('#login-form').hide();
+  $('#login-signup').hide();
+  $('.logo').html("<%= j (render 'create') %>");
+<% end %>
 
