@@ -5,12 +5,12 @@
 @import "header";
 
 body {
-  background-color: #BAC9A9;
+  background-color: white;
 }
 
 .container {
   margin: 2% 5% auto;
-  background-color: #BAC9A9;
+  background-color: white;
   font-family: $body-font;
 }
 
@@ -21,4 +21,9 @@ a {
 
 a:hover {
   color: darken($a-color, 10);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: -2%;
 }

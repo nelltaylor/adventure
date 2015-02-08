@@ -1,4 +1,5 @@
 <div id="submit-reply">
+  <br>
 <%= form_for :reply, :url => {:action => 'create'}, remote: true do |f| %>
 <%= f.text_area(:text, size: '60x4', maxlength: 140)  %>
  <%= f.submit 'Submit' %>
