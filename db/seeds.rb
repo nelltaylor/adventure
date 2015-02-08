@@ -8,7 +8,7 @@
 
 20.times do
 	Post.create!(title: Faker::Hacker.say_something_smart,
-					image_url: 'http://lorempixel.com/300/200/animals/',
+					image_url: 'http://lorempixel.com/600/400/animals/',
 					author_id: rand(1..20))
 end
 
