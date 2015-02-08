@@ -8,10 +8,19 @@
 
   <img src="<%= @post.image_url %>">
 
-  <div id="votes">
-    <%= button_to 'Like', {action: 'voteup'}, form_class: "like_post_form" %><%= button_to 'Dislike', {action: 'votedown'}, form_class: "dislike_post_form" %><div id="post_points"><%= @post.total_votes %> Points</div><div id="tags"> Tags: <% @post.tags.each do |t| %>
-      <span class="single-tag"><%= t.name %></span>
-    <% end %>
+
+  <div id='votes'>
+    <%= button_to 'Like', {action: 'voteup'}, form_class: "like_post_form" %><%= button_to 'Dislike', {action: 'votedown'}, form_class: "dislike_post_form" %>
+
+    <span id="post_points"><%= @post.total_votes %></span> Points
+
+    <div class="tags"> Tags: <%= @post.tags.pluck(:name).join(' ') %><br>
+    </div>
+
+    <div id="add_tags">
+      <%=link_to "Add tags", new_tag_path, remote:true %>
+    </div>
+
   </div>
 </div>
 
