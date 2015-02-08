@@ -1,10 +1,14 @@
 class TagsController < ApplicationController
 
-  def search
+  def index
     tag = Tag.find_by(params[:tag])
-    @posts = tag.posts
-    render ''
+    if tag
+      @posts = tag.posts
+    else
+      @posts = []
 
+    end
+    render 'index'
   end
 
 end

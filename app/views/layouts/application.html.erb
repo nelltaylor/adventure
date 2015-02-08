@@ -15,7 +15,7 @@
     <header>
       <div class="logo"><%= link_to "Animaux!", posts_path %></div>
       <nav>
-        <%= form_for :tag, method: 'GET', action: 'search' do |f| %>
+        <%= form_for :tag, :url => {action: 'index', controller: 'tags'}, method: 'GET' do |f| %>
           <%= f.text_field :name %>
           <%= f.submit 'Search' %>
         <% end %>

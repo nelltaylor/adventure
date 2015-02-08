@@ -1,0 +1,16 @@
+<h1>One stop for all the internet's cutest animals</h1>
+
+<div class="tile-images">
+    <% @posts.each do |post| %>
+      <div id="post<%=post.id%>"><%= link_to image_tag(post.image_url), post_path(id: post.id) %>
+        <% if @user %>
+          <div id="edit-image">
+            <%= button_to "Edit Image", edit_post_path(id: post.id), method: :get %>
+          </div>
+          <div id="delete-image">
+            <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>
