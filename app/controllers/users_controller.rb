@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 skip_before_action :verify_authenticity_token
 
   def new
-    render partial: "new"
+    render partial: 'new'
   end
 
   def create
