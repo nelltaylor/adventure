@@ -6,12 +6,15 @@ header {
   width: 100%;
   padding: .75% 1% .15% 1%;
   display: block;
-  background-color: #2FB8AC;
+  background-color: $header-background;
   font-family: $header-font;
-  border-radius: 5px;
 
   .logo {
-    font-size: 1.5em;
+    font-size: 2em;
+  }
+
+  a {
+    color: white;
   }
 
   nav {

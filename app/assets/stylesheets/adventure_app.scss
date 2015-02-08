@@ -1,15 +1,16 @@
+@import "normalize";
 @import "bourbon";
 @import "neat";
 @import "constants";
 @import "header";
 
 body {
-  background-color: #E4F5B1;
+  background-color: #BAC9A9;
 }
 
 .container {
   margin: 2% 5% auto;
-  background-color: #E4F5B1;
+  background-color: #BAC9A9;
   font-family: $body-font;
 }
 
@@ -19,5 +20,5 @@ a {
 }
 
 a:hover {
-  color: darken($a-color, 5);
+  color: darken($a-color, 10);
 }
