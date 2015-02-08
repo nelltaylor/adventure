@@ -96,6 +96,16 @@ $(document).ready(function(){
   //   })
   // })
 
+  $('.sort-posts').on("click", 'a', function(event){
+  event.preventDefault();
+    var myUrl = $(this).attr('href')
+    $.ajax({type: "GET", url: myUrl})
+      .done(function(response) {
+        $('.tile-images').hide();
+        $('.images-container').html(response)
+      })
+  })
+
   $('.tile-images').on("submit", '.edit-image', function(event){
   event.preventDefault();
     var myUrl = $(this).attr('action')
@@ -107,4 +117,5 @@ $(document).ready(function(){
         $('#post'+id).html(response)
       })
   })
+
 })

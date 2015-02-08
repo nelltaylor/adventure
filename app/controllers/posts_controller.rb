@@ -4,18 +4,7 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @posts = Post.most_popular
-  end
-
-  def show
-    @post = Post.find_by(id: params[:id])
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
-
-  def new
+    @posts = Post.all
   end
 
   def create
@@ -24,11 +13,30 @@ class PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def new
+  end
+
+  def popular
+    @posts = Post.most_popular
+      respond_to do |format|
+      format.html { render :layout => false }
+      format.json { render :layout => false }
+    end
+  end
+
   def edit
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
       format.html { render :layout => false }
       format.json { render :layout => false }
+    end
+  end
+
+  def show
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 
