@@ -1,5 +1,5 @@
 <div id="submit-caption">
-<%= form_for :comment, :url => {:action => 'create'}, remote: true do |f| %>
+<%= form_for :comment, :url => {:action => "create", name: "#{@post.id}"}, :html => {id: 'new_comment'} do |f| %>
 <%= f.text_area(:text, size: '60x4', maxlength: 140)  %>
  <%= f.submit 'Submit' %>
  <% end %>

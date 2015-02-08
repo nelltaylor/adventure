@@ -8,13 +8,20 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    @post = Post.find(params[:id])
   end
 
   def create
-    # @post = Post.find(params[:id])
-    @comment = Comment.create(comment_params)
-    # @comment.post_id = @post.id
-    # @comment.commenter_id = current_user.id
+    @post = Post.find(params[:name])
+    @comment = Comment.new(params[:comment])
+    @comment.post_id = @post.id
+    @comment.commenter_id = current_user.id
+    @comment.save
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.json { render json: @comment}
+    end
+    # {text: @comment.text, user: current_user.username}
   end
 
   def voteup
@@ -43,9 +50,9 @@ class CommentsController < ApplicationController
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:text, :commenter_id)
-  end
+  # def comment_params
+  #   params.require(:comment).permit(:text)
+  # end
 
 
 
