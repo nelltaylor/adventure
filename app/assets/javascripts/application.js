@@ -118,4 +118,17 @@ $(document).ready(function(){
       })
   })
 
+  $('#comment_form').on('submit', '#new_comment', function(event) {
+    event.preventDefault()
+    var myUrl = $(this).attr('action')
+    var regex = /\d+/;
+    var id = myUrl.match(regex)[0]
+    var thing = $('#new_comment').serializeArray()[2]
+    console.log(thing)
+    $.ajax({type: "POST", url: myUrl, data: thing})
+      .done(function(response) {
+        console.log(response)
+      })
+  })
+
 })

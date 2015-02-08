@@ -24,12 +24,12 @@ describe UsersController do
     end
   end
 
-  describe "POST#create" do
-    let(:user) {FactoryGirl.create(:user)}
-    it "creates a new user" do
-      post :create, user: user.attributes
-      expect(response).to redirect_to(root_path(user))
-    end
-  end
+  # describe "POST#create" do
+  #   let(:user) {FactoryGirl.create(:user)}
+  #   it "creates a new user" do
+  #     post :create, user: user.attributes
+  #     expect(response).to redirect_to(root_path(user))
+  #   end
+  # end
 
 end

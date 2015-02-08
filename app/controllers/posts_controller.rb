@@ -16,11 +16,24 @@ class PostsController < ApplicationController
   def new
   end
 
+
   def popular
     @posts = Post.most_popular
       respond_to do |format|
       format.html { render :layout => false }
       format.json { render :layout => false }
+
+    end
+  end
+
+  def create
+    post_params = params[:posts]
+    if session[:user_id]
+      @post = Post.create(title: post_params[:title], image_url: post_params[:image_url], author_id: session[:user_id])
+      redirect_to '/'
+    else
+      flash[:error] = 'You need to log in to upload a photo!'
+      render 'new'
     end
   end
 
