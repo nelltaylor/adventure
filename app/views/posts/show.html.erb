@@ -15,13 +15,19 @@
   </div>
 </div>
 
+
 </div>
 
 <div class="post-comments-container">
   <div id="new-comment">
-    <%= link_to "Submit a New Comment", new_comment_path, remote: true %>
-    <div id="comment_form"></div>
+    <%= link_to "Submit a New Comment", new_comment_path(id: @post.id), remote: true %>
   </div>
+
+
+
+
+  <div id="comment_form"></div>
+
 
   <div id="opinions">
 

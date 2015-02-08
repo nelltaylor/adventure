@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   get '/users/:id/posts' => 'users#my_animaux', as: :my_animaux
 
-  resources :comments
+  resources :comments, except: :create
+  post '/comments(.:name)' => 'comments#create'
   post '/comments/:id/voteup' => 'comments#voteup'
   post '/comments/:id/votedown' => 'comments#votedown'
-  # post 'posts/:id/comments'
+
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"
