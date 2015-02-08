@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :comments
   post '/comments/:id/voteup' => 'comments#voteup'
   post '/comments/:id/votedown' => 'comments#votedown'
+  # post 'posts/:id/comments'
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"

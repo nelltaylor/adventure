@@ -11,7 +11,10 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # @post = Post.find(params[:id])
     @comment = Comment.create(comment_params)
+    # @comment.post_id = @post.id
+    # @comment.commenter_id = current_user.id
   end
 
   def voteup

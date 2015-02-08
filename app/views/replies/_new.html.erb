@@ -1,5 +1,6 @@
-<div id="submit-caption">
-<%= form_tag :action => 'create', :id => @reply, remote: true %>
-<%= text_area "reply", "text", "cols" => 60, "rows" => 4, "maxlength" => 140, "placeholder" => "Submit a reply " %>
- <%= submit_tag( "Submit" ) %>
+<div id="submit-reply">
+<%= form_for :reply, :url => {:action => 'create'}, remote: true do |f| %>
+<%= f.text_area(:text, size: '60x4', maxlength: 140)  %>
+ <%= f.submit 'Submit' %>
+ <% end %>
 </div>
