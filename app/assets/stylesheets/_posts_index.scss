@@ -31,8 +31,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   padding: 1%;
-  margin-top: -12%;
-  font-size: 1em;
+  margin-top: -10%;
+  font-size: .85em;
 }
 
 .sort-posts {
@@ -40,4 +40,15 @@
   background-color: #EB9C4D;
   padding: .5%;
   font-size: .85em;
+}
+
+.edit-image {
+  margin-top: 3%;
+  margin-right: 5%;
+  float: left;
+}
+
+.delete-image {
+  margin-top: 3%;
+  float: left;
 }
