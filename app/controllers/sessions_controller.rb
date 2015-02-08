@@ -1,17 +1,17 @@
 class SessionsController < ApplicationController
   # respond_to :html, :js
+  skip_before_action :verify_authenticity_token
 
 
   def new
-    # puts 'arrived'
-    #render 'new'
+    render partial: 'new'
   end
 
   def create
     @user = User.authenticate(params[:email], params[:password])
     if @user
       session[:user_id] = @user.id
-      # redirect_to "/"
+      redirect_to "/"
     else
       flash.now.alert = "Invalid email or password"
     end

@@ -17,4 +17,13 @@ describe UsersController do
   #   end
   #   it { should redirect_to(root_url) }
   # end
+
+
+  describe "GET #index" do
+    it "renders the :index view" do
+      get :index
+      expect(response).to render_template :index
+    end
+  end
+
 end
