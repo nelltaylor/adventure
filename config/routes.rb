@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :tags
 
+
   resources :post_tags
 
   root 'posts#index'
