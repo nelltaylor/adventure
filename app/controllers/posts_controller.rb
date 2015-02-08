@@ -27,9 +27,15 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
-      format.html
-      format.json
+      format.html { render :layout => false }
+      format.json { render :layout => false }
     end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update_attributes(title: params[:title], image_url: params[:image_url], author_id: session[:user_id])
+    redirect_to @post
   end
 
   def show_reply_form
