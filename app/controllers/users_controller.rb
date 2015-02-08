@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
+skip_before_action :verify_authenticity_token
 
   def new
+    render partial: "new"
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to "/"
     else
       render 'new'

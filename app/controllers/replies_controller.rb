@@ -1,9 +1,9 @@
 class RepliesController < ApplicationController
-
+  respond_to :html, :js
   skip_before_action :verify_authenticity_token
 
   def new
-    @reply = Reply.new
+    # @reply = Reply.new
   end
 
   def show

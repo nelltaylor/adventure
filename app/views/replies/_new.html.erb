@@ -1,5 +1,5 @@
 <div id="submit-caption">
-<%= form_tag :action => 'create', :id => @reply %>
+<%= form_tag :action => 'create', :id => @reply, remote: true %>
 <%= text_area "reply", "text", "cols" => 60, "rows" => 4, "maxlength" => 140, "placeholder" => "Submit a reply " %>
  <%= submit_tag( "Submit" ) %>
 </div>
