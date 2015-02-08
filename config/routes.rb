@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :log_out
 
+  get 'posts/popular' => 'posts#popular', as: :popular
+
   resources :posts
   post '/posts/:id/voteup' => 'posts#voteup'
   post '/posts/:id/votedown' => 'posts#votedown'
