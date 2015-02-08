@@ -34,7 +34,7 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   position: relative;
-  padding: 1%;
+  padding: 2%;
   margin-top: -10%;
   font-size: .85em;
 }
@@ -46,6 +46,7 @@
   font-size: .85em;
   float: left;
   margin: 1%;
+  font-weight: bold;
 }
 
 .recent-posts {
@@ -55,6 +56,7 @@
   font-size: .85em;
   float: left;
   margin: 1%;
+  font-weight: bold;
 }
 
 .edit-image {
@@ -66,4 +68,12 @@
 .delete-image {
   margin-top: 3%;
   float: left;
+}
+
+#submit-reply {
+  padding-top: 4%;
+}
+
+#submit-caption {
+  padding-top: 4%;
 }
