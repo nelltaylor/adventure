@@ -6,17 +6,21 @@
 
 <div class="images-container">
 
-<div class="tile-images">
-    <% @posts.each do |post| %>
-      <div id="post<%=post.id%>">
-        <div id="manage-post">
-          <%= link_to image_tag(post.image_url), post_path(id: post.id) %> <%= post.votes.count %>
-          <% if @user %>
-              <%= button_to "Edit Image", edit_post_path(id: post.id), method: :get, form_class: "edit-image" %>
-              <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+  <div class="tile-images">
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <div id="post<%=post.id%>">
+            <div id="manage-post">
+              <%= link_to image_tag(post.image_url), post_path(id: post.id) %> <%= post.votes.count %>
+              <% if @user %>
+                  <%= button_to "Edit Image", edit_post_path(id: post.id), method: :get, form_class: "edit-image" %>
+                  <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
