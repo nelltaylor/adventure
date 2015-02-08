@@ -19,7 +19,7 @@
   <%= link_to "Submit a New Comment", new_comment_path, remote: true %>
   <div id="comment_form"></div>
 
-
+<div id="opinions">
 
 <% @post.comments.each do |comment| %>
 <div id='comments'>
@@ -47,3 +47,5 @@
   <% end %>
 
 </div>
+</div>
+
