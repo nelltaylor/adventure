@@ -2,6 +2,10 @@
 @import "neat";
 @import "constants";
 
+.images-container {
+  clear: both;
+}
+
 .tile-images {
   margin: auto;
 }
@@ -40,6 +44,17 @@
   background-color: #EB9C4D;
   padding: .5%;
   font-size: .85em;
+  float: left;
+  margin: 1%;
+}
+
+.recent-posts {
+  max-width: 10.5%;
+  background-color: #EB9C4D;
+  padding: .5%;
+  font-size: .85em;
+  float: left;
+  margin: 1%;
 }
 
 .edit-image {

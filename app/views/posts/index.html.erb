@@ -1,7 +1,14 @@
 <h1>One stop for all the internet's cutest animals</h1>
 
 <div class="sort-posts">
-  <%= link_to "Sort by Popularity", popular_path %>
+  <%= link_to "Most Popular", popular_path %>
+</div>
+<div class="recent-posts">
+  <% if @user %>
+    <%= link_to "Most Recent", my_animaux_path %>
+  <% else %>
+    <%= link_to "Most Recent", posts_path %>
+  <% end %>
 </div>
 
 <div class="images-container">
