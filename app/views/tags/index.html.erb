@@ -1,6 +1,11 @@
 <h1>One stop for all the internet's cutest animals</h1>
 
-Search results for "<strong><%= @tag.name %></strong>":
+<% if @tag.nil? %>
+  Sorry, there are no results for that search.
+<% else %>
+  Search results for "<strong><%= @tag.name %></strong>":
+<% end %>
+
 <div class="tile-images">
     <ul>
       <% @posts.each do |post| %>
