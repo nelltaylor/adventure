@@ -85,25 +85,26 @@ $(document).ready(function(){
         })
   })
 
-  $('#new_reply').click(function(event){
+  // $('#new_reply').click(function(event){
 
-    $.ajax({
-      url: '/replies/show'
-    })
-    .done(function(response){
-      $('#new_reply').hide();
-      $('#empty').append(response);
-    })
-  })
+  //   $.ajax({
+  //     url: '/replies/show'
+  //   })
+  //   .done(function(response){
+  //     $('#new_reply').hide();
+  //     $('#empty').append(response);
+  //   })
+  // })
 
-    $('.tile-images').on('click', '#edit-image', function(){
-    event.preventDefault();
-      var myUrl = $(this).attr('href')
-      var regex = /\d*$/;
-      var id = myUrl.match(regex)[0]
-      $.ajax({type: "GET", url: myUrl})
-        .done(function(response) {
-          $('#post'+id).html("<%= escape_javascript(render partial: 'edit') %>")
-        })
+  $('.tile-images').on("submit", '.edit-image', function(event){
+  event.preventDefault();
+    var myUrl = $(this).attr('action')
+    var regex = /\d+/;
+    var id = myUrl.match(regex)[0]
+    $.ajax({type: "GET", url: myUrl})
+      .done(function(response) {
+        $('#manage-post').hide();
+        $('#post'+id).html(response)
+      })
   })
 })

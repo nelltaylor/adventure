@@ -1,1 +1,8 @@
-<h1>HI I"M A POSTS/EDIT WOOOO!</h1>
+<%= form_for(@post) do |f| %>
+<%= f.label :title %>:
+<%= f.text_field :title %><br>
+
+<%= f.label :image_url %>
+<%= f.text_field :image_url %><br>
+<%= f.submit %>
+<% end %>
