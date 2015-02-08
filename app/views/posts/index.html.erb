@@ -1,10 +1,12 @@
 <h1>One stop for all the internet's cutest animals</h1>
 
+<p>Sort by Popularity</p>
+
 <div class="tile-images">
     <% @posts.each do |post| %>
       <div id="post<%=post.id%>">
         <div id="manage-post">
-          <%= link_to image_tag(post.image_url), post_path(id: post.id) %>
+          <%= link_to image_tag(post.image_url), post_path(id: post.id) %> <%= post.votes.count %>
           <% if @user %>
               <%= button_to "Edit Image", edit_post_path(id: post.id), method: :get, form_class: "edit-image" %>
               <%= button_to "Delete Image", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>

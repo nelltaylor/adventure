@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
 	has_many :tags, through: :post_tags
   has_many :votes, :as => :votable
 
+   scope :most_popular, -> { joins(:votes).group("posts.id").order("votes.count DESC, created_at desc") }
+
   def total_votes
       self.votes.where(vote:true).count - self.votes.where(vote:false).count
   end
