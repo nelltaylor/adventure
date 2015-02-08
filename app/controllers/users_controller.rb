@@ -9,7 +9,7 @@ skip_before_action :verify_authenticity_token
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to "/"
+      # redirect_to "/"
     else
       render 'new'
     end
