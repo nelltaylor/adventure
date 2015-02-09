@@ -48,6 +48,7 @@ $(document).ready(function(){
           $('#comment'+id+'_points').text(points)
         })
   })
+
   $('.container').on("submit", '.dislike_comment_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
@@ -209,7 +210,7 @@ $(document).ready(function(){
        var $tag = $('<span>').addClass('single-tag').text(response['tag']['name'])
       $('#tags').append($tag);
       $('#add_tags').show()
-        // console.log(response) 
+        // console.log(response)
       })
   })
 })
