@@ -195,22 +195,21 @@ $(document).ready(function(){
 
   $('#add_tags').on('click', function(){
     // event.preventDefault()
-    var removedAddTag = (this).remove();
+    $(this).hide();
   })
 
    $('#new-tag').on('submit', '#new_tag', function(event){
     // event.preventDefault()
-    
     event.preventDefault();
     var myUrl = $(this).attr('action');
 
     $.ajax({type: "POST", url: myUrl, data: $('#new_tag').serialize(), dataType: 'json'})
       .done(function(response) {
-       $('#submit-tag').remove();
+       $('#new-tag').hide();
        var $tag = $('<span>').addClass('single-tag').text(response['tag']['name'])
-    $('#tags').append($tag);
+      $('#tags').append($tag);
+      $('#add_tags').show()
         // console.log(response) 
       })
-    
   })
 })

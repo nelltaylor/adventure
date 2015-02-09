@@ -11,11 +11,11 @@
     <div id="tags"> Tags: <% @post.tags.each do |t| %>
       <span class="single-tag"><%= t.name %></span>
       <% end %>
+    </div>
       <% if session[:user_id] %>
         <span id="add_tags"><%=link_to "Add Tag", new_tag_path(id: @post.id), remote:true %>
         </span>
         <% end %>
-    </div>
   </div>
 </div>
   <div id="new-tag"></div>
