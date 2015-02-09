@@ -198,9 +198,19 @@ $(document).ready(function(){
     var removedAddTag = (this).remove();
   })
 
-   $('body').on('submit', '#submit-tag', function(event){
+   $('#new-tag').on('submit', '#new_tag', function(event){
     // event.preventDefault()
-    (this).hide();
-    ('#tags').append(removedAddTag);
+    
+    event.preventDefault();
+    var myUrl = $(this).attr('action');
+
+    $.ajax({type: "POST", url: myUrl, data: $('#new_tag').serialize(), dataType: 'json'})
+      .done(function(response) {
+       $('#submit-tag').remove();
+       var $tag = $('<span>').addClass('single-tag').text(response['tag']['name'])
+    $('#tags').append($tag);
+        // console.log(response) 
+      })
+    
   })
 })
