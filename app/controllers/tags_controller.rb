@@ -19,7 +19,7 @@ class TagsController < ApplicationController
 
 	def create
 		@tag = Tag.create(tag_params)
-		@post =Post.find(params[:id])
+		# @post =Post.find(params[:id])
 	end
 end
 

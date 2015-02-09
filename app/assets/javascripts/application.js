@@ -193,4 +193,14 @@ $(document).ready(function(){
       })
   })
 
+  $('#add_tags').on('click', function(){
+    // event.preventDefault()
+    var removedAddTag = (this).remove();
+  })
+
+   $('body').on('submit', '#submit-tag', function(event){
+    // event.preventDefault()
+    (this).hide();
+    ('#tags').append(removedAddTag);
+  })
 })
