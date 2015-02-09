@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update_attributes(title: params[:title], image_url: params[:image_url], author_id: session[:user_id])
+    @post.update_attributes(title: params[:post][:title], image_url: params[:post][:image_url], author_id: session[:user_id])
     redirect_to @post
   end
 
