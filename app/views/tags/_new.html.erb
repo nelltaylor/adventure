@@ -1,4 +1,5 @@
 <div id="submit-tag">
+  Add a Tag:
 <%= form_for :tag, url: {action: 'create'}, remote:true  do |f| %>
 <%= f.text_area(:name, size: '10x1', maxlength: 80)  %>
  <%= f.submit 'Submit' %>
