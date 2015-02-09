@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   post '/posts/:id/voteup' => 'posts#voteup'
   post '/posts/:id/votedown' => 'posts#votedown'
 
-  resources :replies
+  resources :replies, except: :create
+  post '/replies(.:name)' => 'replies#create'
   post '/replies/:id/voteup' => 'replies#voteup'
   post '/replies/:id/votedown' => 'replies#votedown'
 
