@@ -2,37 +2,27 @@
   <h2><%= @post.title %></h2>
   <h5>by <%= @post.author.username %> <%= @post.created_at %></h5>
   <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+  <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-
   <img src="<%= @post.image_url %>">
-
   <div id='votes'>
     <%= button_to 'Like', {action: 'voteup'}, form_class: "like_post_form" %><%= button_to 'Dislike', {action: 'votedown'}, form_class: "dislike_post_form" %>
     <div id="post_points"><%= @post.total_votes %> Points</div>
     <div id="tags"> Tags: <% @post.tags.each do |t| %>
-        <span class="single-tag"><%= t.name %></span>
+      <span class="single-tag"><%= t.name %></span>
       <% end %>
     </div>
-
     <div id="add_tags">
       <%=link_to "Add tags", new_tag_path, remote:true %>
     </div>
-
   </div>
 </div>
-
-
 <div class="post-comments-container">
-
   <div id="new-comment">
     <%= link_to "Submit a New Comment", new_comment_path(id: @post.id), id: 'submit-comment', remote: true %>
   </div>
-
   <div id="comment_form"></div>
-
   <div id="opinions">
-
     <h3>Comments</h3>
     <% @post.comments.each do |comment| %>
     <div id='comments'>
@@ -41,21 +31,21 @@
       <%= button_to 'Like', {action: 'voteup', controller: 'comments', name: "#{comment.id}" }, form_class: "like_comment_form" %>
       <%= button_to 'Dislike', {action: 'votedown', name: "#{comment.id}", controller: 'comments'}, form_class: "dislike_comment_form" %>
       <span id="comment<%=comment.id%>_points"><%= comment.total_votes %>Points</span>
-
       <div id="reply_link"><%= link_to "Reply To Comment", new_reply_path(comment: "#{comment.id}"), remote: true %></div>
+
       <div id="reply_form<%=comment.id%>"></div>
 
       <% comment.replies.each do |reply| %>
       <div id='replies'>
-          <h4>Reply</h4>
-          <div id="replies-for-comment-<%=comment.id%>">
-          <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply_form"  %>
+        <h4>Replies</h4>
+        <div id="replies-for-comment-<%=comment.id%>">
+          <strong><%= reply.replier.username %>:</strong><br>
+          <%= reply.text %>
+          <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply_form" %>
           <%= button_to 'Dislike', {action: 'votedown', name: "#{reply.id}",controller: 'replies'}, form_class: "dislike_reply_form" %>
-          <span id="reply<%=reply.id%>_points"><%= reply.total_votes %></span> Points <br><br>
-          <li><%= reply.text %></li>
-          <li><%= reply.replier.username %></li>
+          <span id="reply<%=reply.id%>_points"><%= reply.total_votes %>Points </span>
+          <% end %>
+        </div>
         <% end %>
       </div>
-      <% end %>
     </div>
-  </div>
