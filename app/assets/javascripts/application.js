@@ -168,7 +168,7 @@ $(document).ready(function(){
         $('.submit-reply').show();
         // var $div = $('<div>').attr('id', "comments")
         // var $h3 = $('<h3>').text('Comments')
-        var $name = $('<strong>').text(''+response['user']['username']+':')
+        var $name = $('<strong>'+response['user']['username']+'</strong>')
         var $h4 = $('<h4>').text('Replies')
         var $like = $('<input>').attr('type', 'submit').attr('value', 'Like')
         var $likeForm = $('<form>').attr('method', 'post').attr('action', '/replies/'+response['reply']['comment_id']+'/voteup?name='+response['reply']['id']+'').addClass('like_reply_form').append($like)
