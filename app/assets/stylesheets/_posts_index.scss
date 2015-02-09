@@ -20,7 +20,7 @@
     max-width: 23.5%;
     margin-right: 1%;
     margin-top: 1%;
-    background-color: #dddddb;
+    background-color: $gray;
     padding: 1%;
   }
 
@@ -41,7 +41,7 @@
 
 .sort-posts {
   max-width: 10.5%;
-  background-color: #EB9C4D;
+  background-color: $orange;
   padding: .5%;
   font-size: .85em;
   float: left;
@@ -51,7 +51,7 @@
 
 .recent-posts {
   max-width: 10.5%;
-  background-color: #EB9C4D;
+  background-color: $orange;
   padding: .5%;
   font-size: .85em;
   float: left;

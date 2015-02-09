@@ -6,7 +6,7 @@
   max-width: 50%;
   margin: 1% auto;
   padding: 1% 3% 4% 3%;
-  background-color: #dddddb;
+  background-color: $gray;
 }
 
 .post-container img {
@@ -22,43 +22,44 @@
   margin-top: -1%;
   margin-bottom: 2%;
   margin-left: 2%;
+  background-color: $gray;
 }
 
 .like_post_form {
   margin-right: 2%;
   float: left;
-  max-width: 25%;
+  max-width: 20%;
 }
 
 .dislike_post_form {
   margin-right: 2%;
   float: left;
-  max-width: 25%;
+  max-width: 20%;
 }
 
 #post_points {
   margin-right: 2%;
   float: left;
-  max-width: 25%;
+  max-width: 20%;
 }
 
 #tags {
-  float: right;
-  max-width: 100%;
+  float: left;
   line-height: 2em;
   margin-top: -1%;
+  min-width: 50%;
+  max-width: 60%;
 }
 
 .single-tag {
-  background-color: #EB9C4D;
+  background-color: $orange;
   padding: 0 1% 0 1%;
   border-radius: 5px;
 }
 
 #add_tags {
-  clear: both;
-  background-color: #EB9C4D;
+  background-color: $orange;
   padding: 0 1% 0 1%;
   border-radius: 5px;
-  max-width: 15%;
 }
+

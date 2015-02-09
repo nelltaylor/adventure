@@ -17,7 +17,7 @@
 
 
 $(document).ready(function(){
-  $('body').on("submit", ".like_post_form", function(){
+  $('body').on("submit", ".like_post_form", function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       $.ajax({type: 'POST', url: myUrl})
@@ -27,7 +27,7 @@ $(document).ready(function(){
         })
   })
 
-  $('body').on("submit", ".dislike_post_form", function(){
+  $('body').on("submit", ".dislike_post_form", function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       $.ajax({type: 'POST', url: myUrl})
@@ -37,7 +37,7 @@ $(document).ready(function(){
         })
   })
 
-  $('#comments').on("submit", '.like_comment_form', function(){
+  $('#comments').on("submit", '.like_comment_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
@@ -48,7 +48,7 @@ $(document).ready(function(){
           $('#comment'+id+'_points').text(points)
         })
   })
-  $('#comments').on("submit", '.dislike_comment_form', function(){
+  $('#comments').on("submit", '.dislike_comment_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
@@ -60,7 +60,7 @@ $(document).ready(function(){
         })
   })
 
-  $('#replies').on("submit", '.like_reply_form', function(){
+  $('#replies').on("submit", '.like_reply_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
@@ -73,7 +73,7 @@ $(document).ready(function(){
         })
   })
 
-  $('#replies').on("submit", '.dislike_reply_form', function(){
+  $('#replies').on("submit", '.dislike_reply_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
