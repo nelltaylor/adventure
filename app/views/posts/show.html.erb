@@ -10,10 +10,9 @@
     <div id="post_points"><%= @post.total_votes %> Points</div>
     <div id="tags"> Tags: <% @post.tags.each do |t| %>
       <span class="single-tag"><%= t.name %></span>
-      <% end %>
-    </div>
-    <div id="add_tags">
-      <%=link_to "Add tags", new_tag_path, remote:true %>
+    <% end %><span id="add_tags">
+        <%=link_to "Add Tag", new_tag_path, remote:true %>
+      </span>
     </div>
   </div>
 </div>
@@ -30,20 +29,20 @@
       <%= comment.text %><br>
       <%= button_to 'Like', {action: 'voteup', controller: 'comments', name: "#{comment.id}" }, form_class: "like_comment_form" %>
       <%= button_to 'Dislike', {action: 'votedown', name: "#{comment.id}", controller: 'comments'}, form_class: "dislike_comment_form" %>
-      <span id="comment<%=comment.id%>_points"><%= comment.total_votes %>Points</span>
+      <span id="comment<%=comment.id%>_points"><%= comment.total_votes %> Points</span>
       <div id="reply_link"><%= link_to "Reply To Comment", new_reply_path(comment: "#{comment.id}"), remote: true %></div>
 
       <div id="reply_form<%=comment.id%>"></div>
 
       <% comment.replies.each do |reply| %>
       <div id='replies'>
-        <h4>Replies</h4>
+        <h4>Reply</h4>
         <div id="replies-for-comment-<%=comment.id%>">
           <strong><%= reply.replier.username %>:</strong><br>
-          <%= reply.text %>
+          <%= reply.text %><br>
           <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply_form" %>
           <%= button_to 'Dislike', {action: 'votedown', name: "#{reply.id}",controller: 'replies'}, form_class: "dislike_reply_form" %>
-          <span id="reply<%=reply.id%>_points"><%= reply.total_votes %>Points </span>
+          <span id="reply<%=reply.id%>_points"><%= reply.total_votes %> Points </span>
           <% end %>
         </div>
         <% end %>

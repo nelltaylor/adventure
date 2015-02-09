@@ -1,3 +1,7 @@
+@import "bourbon";
+@import "neat";
+@import "constants";
+
 .post-comments-container {
   clear: both;
 }
@@ -28,22 +32,30 @@
 }
 
 .like_reply_form {
+  margin-top: 1%;
   margin-right: 2%;
   float: left;
   max-width: 25%;
 }
 
 .dislike_reply_form {
+  margin-top: 1%;
   margin-right: 2%;
   float: left;
   max-width: 25%;
+}
+
+#replies span {
+  float: left;
+  margin-right: 2%;
+  margin-top: 1%;
 }
 
 #opinions {
   max-width: 50%;
   margin: 1% auto;
   padding: 1% 3% 1% 3%;
-  background-color: #EB9C4D;
+  background-color: $orange;
   border-radius: 5px;
 }
 
@@ -52,24 +64,35 @@ h3 {
   margin-bottom: .5%;
 }
 
+h4 {
+  margin-top: 6%;
+  margin-bottom: 1%;
+  background-color: darken($gray, 10);
+  padding: 1%;
+}
+
 #comments {
-  background-color: #dddddb;
+  background-color: $gray;
   margin: 2% auto;
   padding: 1% 3% 6% 3%;
   border-radius: 5px;
+  line-height: 2em;
 }
 
 #reply_link {
-  background-color: #EB9C4D;
+  background-color: $orange;
   border-radius: 5px;
-  padding: 0% 1% 0% 1%;
+  padding-left: 1%;
+  padding-right: 1%;
   float: right;
   max-width: 40%;
+  font-size: .85em;
 }
 
 #replies {
-  background-color: #dddddb;
-  margin: 2% auto;
-  padding: 1% 3% 6% 3%;
+  background-color: $gray;
+  margin: 1% auto;
+  padding: 1% 3% 1% 3%;
   border-radius: 5px;
+  line-height: 1em;
 }

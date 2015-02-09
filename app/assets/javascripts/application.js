@@ -17,7 +17,7 @@
 
 
 $(document).ready(function(){
-  $('body').on("submit", ".like_post_form", function(){
+  $('body').on("submit", ".like_post_form", function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       $.ajax({type: 'POST', url: myUrl})
@@ -27,7 +27,7 @@ $(document).ready(function(){
         })
   })
 
-  $('body').on("submit", ".dislike_post_form", function(){
+  $('body').on("submit", ".dislike_post_form", function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       $.ajax({type: 'POST', url: myUrl})
