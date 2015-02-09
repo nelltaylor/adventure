@@ -4,11 +4,13 @@ class RepliesController < ApplicationController
 
   def new
     # @reply = Reply.new
+    @comment = Comment.find(params[:id])
   end
 
   def show
 
     @reply = Reply.new
+
   end
 
   def create
@@ -18,8 +20,8 @@ class RepliesController < ApplicationController
     @reply = Reply.create(text: text, replier_id: replier_id, comment_id: @comment.id)
 
     respond_to do |format|
-      format.html { render json: {comment: @reply, user: current_user} }
-      format.json { render json: {comment: @reply, user: current_user} }
+      format.html { render json: {reply: @reply, user: current_user} }
+      format.json { render json: {reply: @reply, user: current_user} }
     end
   end
 
