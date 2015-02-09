@@ -37,7 +37,7 @@ $(document).ready(function(){
         })
   })
 
-  $('#comments').on("submit", '.like_comment_form', function(event){
+  $('.container').on("submit", '.like_comment_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
@@ -48,7 +48,7 @@ $(document).ready(function(){
           $('#comment'+id+'_points').text(points)
         })
   })
-  $('#comments').on("submit", '.dislike_comment_form', function(event){
+  $('.container').on("submit", '.dislike_comment_form', function(event){
     event.preventDefault();
       var myUrl = $(this).attr('action')
       var regex = /\d*$/;
@@ -130,8 +130,8 @@ $(document).ready(function(){
         console.log(response)
         $('#new_comment').remove();
         $('#submit-comment').show();
-        var $div = $('<div>').attr('id', "comments")
-        var $h3 = $('<h3>').text('Comments')
+        var $div = $('<div>').attr('id', "comments").addClass('comments')
+        // var $h3 = $('<h3>').text('Comments')
         var $like = $('<input>').attr('type', 'submit').attr('value', 'Like')
         var $likeForm = $('<form>').attr('method', 'post').attr('action', '/comments/'+response['comment']['post_id']+'/voteup?name='+response['comment']['id']+'').addClass('like_comment_form').append($like)
 
@@ -141,14 +141,14 @@ $(document).ready(function(){
 
         var $points = $('<span>').attr('id', 'comment'+response['comment']['id']+'_points').html('0')
 
-        var $replyLink = $('<a>').attr('data-remote', 'true').attr('href', '/replies/new?comment='+response['comment']['id']+'').text('Reply To Comment')
+        var $replyLink = $('<a>').addClass('submit-reply').attr('data-remote', 'true').attr('href', '/replies/new?id='+response['comment']['id']+'').text('Reply To Comment')
 
 
         var $replyFormDiv = $('<div>').attr('id', 'reply_form'+response['comment']['id']+'')
         // var $h4 = $('<h4>').text('Reply')
         var $replyDiv = $('<div>').attr('id', 'replies-for-comment-'+response['comment']['id']+'')
 
-        $div.append([$h3, $likeForm, $dislikeForm, $points, 'Points', $('<br>'), $('<br>'), ''+response['comment']['text']+''], $('<br>'), ''+response['user']['username']+'', $('<br>'), $('<br>'), $replyLink, $replyFormDiv, $replyDiv)
+        $div.append([''+response['user']['username']+'', $('<br>'), ''+response['comment']['text']+''], $('<br>'), $likeForm, $dislikeForm, $points, 'Points', $replyFormDiv, $replyDiv)
 
         $('#opinions').append($div);
         // console.log($form)
