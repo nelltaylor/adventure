@@ -7,30 +7,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def create
-    post_params = params[:posts]
-    @post = Post.create(title: post_params[:title], image_url: post_params[:image_url], author_id: session[:user_id])
-    redirect_to '/'
-  end
-
   def new
-  end
-
-
-  def popular
-    @posts = Post.most_popular
-      respond_to do |format|
-      format.html { render :layout => false }
-      format.json { render :layout => false }
-
-    end
   end
 
   def create
     post_params = params[:posts]
     if session[:user_id]
       @post = Post.create(title: post_params[:title], image_url: post_params[:image_url], author_id: session[:user_id])
-      redirect_to '/'
+      redirect_to @post
     else
       flash[:error] = 'You need to log in to upload a photo!'
       render 'new'
@@ -40,6 +24,14 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
+      format.html { render :layout => false }
+      format.json { render :layout => false }
+    end
+  end
+
+  def popular
+    @posts = Post.most_popular
+      respond_to do |format|
       format.html { render :layout => false }
       format.json { render :layout => false }
     end

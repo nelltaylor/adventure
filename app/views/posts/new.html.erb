@@ -1,10 +1,8 @@
-<%= form_for :posts, :url => {action: 'create'}, :html => {id: 'upload'} do |f| %>
-<%= f.label :title %>:
-<%= f.text_field :title %><br>
-
-<%= f.label :image_url %>
-<%= f.text_field :image_url %><br>
-<%= f.submit %>
-<% end %>
-
-
+<div class="post-container">
+  <h1>Create a New Post</h1>
+  <%= form_for :posts, :url => {action: 'create'}, :html => {id: 'upload'} do |f| %>
+ Title: <%= f.text_field :title %><br>
+  Image Url: <%= f.text_field :image_url %><br>
+  <%= f.submit %>
+  <% end %>
+</div>
