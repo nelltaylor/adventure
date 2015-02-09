@@ -169,7 +169,7 @@ $(document).ready(function(){
         // var $div = $('<div>').attr('id', "comments")
         // var $h3 = $('<h3>').text('Comments')
         var $name = $('<strong>').text(''+response['user']['username']+':')
-
+        var $h4 = $('<h4>').text('Replies')
         var $like = $('<input>').attr('type', 'submit').attr('value', 'Like')
         var $likeForm = $('<form>').attr('method', 'post').attr('action', '/replies/'+response['reply']['comment_id']+'/voteup?name='+response['reply']['id']+'').addClass('like_reply_form').append($like)
 
@@ -179,7 +179,7 @@ $(document).ready(function(){
         var $points = $('<span>').attr('id', 'reply'+response['reply']['id']+'_points').html('0')
 
         // var $replyLink = $('<a>').attr('data-remote', 'true').attr('href', '/replies/new?comment='+response['comment']['id']+'').text('Reply To Comment')
-        var $div = $('<div>').append([$('<br>'), $name, $('<br>'), response['reply']['text'], $('<br>'), $likeForm, $dislikeForm])
+        var $div = $('<div>').append([$h4, $name, $('<br>'), response['reply']['text'], $('<br>'), $likeForm, $dislikeForm])
         $('#replies-for-comment-'+response['reply']['comment_id']+' #replies').append($div)
 
         // var $replyFormDiv = $('<div>').attr('id', 'reply_form'+response['comment']['id']+'')
