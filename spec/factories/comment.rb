@@ -3,7 +3,7 @@ FactoryGirl.define do
 		text "New test post"
 		commenter
 		post
-		reply
-		vote
+		# reply
+		# vote
 	end
 end

@@ -32,4 +32,28 @@ describe UsersController do
   #   end
   # end
 
+   context "routing" do
+    let(:user){ FactoryGirl.build(:user) }
+    it "routes /users/new to users#new" do
+      {:get => "/users/new"}.should
+        route_to({:controller => "users", :action => "new", :id => user.id, :locale => "en"})
+    end
+
+    it "routes /users to users#create" do
+      {:post => "/users"}.should
+        route_to({:controller => "users", :action => "create", :id => user.id, :locale => "en"})
+    end
+
+    it "routes /users/:id/post to users#my_animaux" do
+      {:get => "/users/#{user.id}/posts"}.should
+        route_to({:controller => "users", :action => "my_animaux", :id => user.id, :locale => "en"})
+    end
+
+    it "routes /users to users#destroy" do
+      {:delete => "/users"}.should
+        route_to({:controller => "users", :action => "destroy", :id => user.id, :locale => "en"})
+    end
+
+  end
+
 end

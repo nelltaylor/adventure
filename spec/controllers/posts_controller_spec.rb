@@ -1,26 +1,59 @@
 require 'spec_helper'
 require 'rails_helper'
 
-# describe "Uploading a Post" do
-#     feature 'A user can upload a photo' do
-#       scenario 'with valid email and password' do
+describe PostsController do
+  context "routing" do
+    let(:user){ FactoryGirl.build(:user) }
+    let(:post){FactoryGirl.build(:post)}
+    it "routes /posts to posts#index" do
+      {:get => "/posts"}.should
+        route_to({:controller => "posts", :action => "index", :id => user.id, :locale => "en"})
+    end
 
-#         user = FactoryGirl.create(:user)
-#         page.set_rack_session(user_id: user.id)
-#         post_params = FactoryGirl.attributes_for(:post)
-#         expect { post :create, :post => post_params }.to change(Post, :count).by(1)
-#         # page.status_code.should == 200
-#     end
-#   end
+    it "routes /posts/new to posts#new" do
+      {:get => "/posts/new"}.should
+        route_to({:controller => "posts", :action => "new", :id => user.id, :locale => "en"})
+    end
 
-  # feature 'Cant upload when not logged in' do
-  #   visit '/posts/new'
-  #   within('#upload') do
-  #     fill_in 'posts[title]', with: 'test'
-  #     fill_in 'posts[image_url]', with: 'data:image/jpeg;base64,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'
+    it "routes /posts to posts#create" do
+      {:post => "/posts"}.should
+        route_to({:controller => "posts", :action => "create", :id => user.id, :locale => "en"})
+    end
 
-  #   end
-  #     click_on 'Save Posts'
+    it "routes /posts/edit to posts#edit" do
+      {:get => "/posts/edit"}.should
+        route_to({:controller => "posts", :action => "edit", :id => user.id, :locale => "en"})
+    end
 
+    it "routes /posts/popular to posts#popular" do
+      {:get => "/posts/popular"}.should
+        route_to({:controller => "posts", :action => "popular", :id => user.id, :locale => "en"})
+    end
 
-# end
+    it "routes /posts/:id to posts#show" do
+
+      {:get => "/posts/#{post.id}"}.should
+        route_to({:controller => "posts", :action => "show", :id => post.id, :locale => "en"})
+    end
+
+    it "routes /posts/:id to posts#update" do
+      {:patch => "/posts/#{post.id}"}.should
+        route_to({:controller => "posts", :action => "update", :id => post.id, :locale => "en"})
+    end
+
+    it "routes /posts/:id/voteup to posts#voteup" do
+      {:post => "/posts/#{post.id}/voteup"}.should
+        route_to({:controller => "posts", :action => "voteup", :id => post.id, :locale => "en"})
+    end
+
+    it "routes /posts/:id/votedown to posts#votedown" do
+      {:post => "/posts/#{post.id}/votedown"}.should
+        route_to({:controller => "posts", :action => "votedown", :id => post.id, :locale => "en"})
+    end
+
+    it "routes /posts/:id to posts#delete" do
+      {:delete => "/posts/#{post.id}"}.should
+        route_to({:controller => "posts", :action => "delete", :id => user.id, :locale => "en"})
+    end
+  end
+end
