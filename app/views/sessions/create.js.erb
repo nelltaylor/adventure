@@ -7,6 +7,6 @@
 <% else %>
   $('.featherlight').remove();
   $('#login-signup').remove();
-  $('.logo').html("<%= j (render partial: 'create', layout: false) %>");
+  window.location.href = data.redirect;
 <% end %>
 
