@@ -13,15 +13,16 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:name])
-    @comment = Comment.new(params[:comment])
-    @comment.post_id = @post.id
-    @comment.commenter_id = current_user.id
-    @comment.save
+    text = params[:comment][:text]
+    commenter_id = current_user.id
+    @comment = Comment.create(text: text, commenter_id: commenter_id, post_id: @post.id)
+    # r @post
+    {text: @comment.text, user: current_user.username}.to_json
     respond_to do |format|
-      format.html { render :layout => false }
-      format.json { render json: @comment}
+      format.html { render json: {comment: @comment, user: current_user} }
+      format.json { render json: {comment: @comment, user: current_user} }
     end
-    # {text: @comment.text, user: current_user.username}
+    # .to_json
   end
 
   def voteup

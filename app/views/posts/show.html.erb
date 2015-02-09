@@ -26,7 +26,7 @@
 <div class="post-comments-container">
 
   <div id="new-comment">
-    <%= link_to "Submit a New Comment", new_comment_path(id: @post.id), remote: true %>
+    <%= link_to "Submit a New Comment", new_comment_path(id: @post.id), id: 'submit-comment', remote: true %>
   </div>
 
   <div id="comment_form"></div>
@@ -48,11 +48,12 @@
       <% comment.replies.each do |reply| %>
       <div id='replies'>
           <h4>Reply</h4>
-          <strong><%= reply.replier.username %>:</strong><br>
-          <%= reply.text %>
-        <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply_form" %>
-        <%= button_to 'Dislike', {action: 'votedown', name: "#{reply.id}",controller: 'replies'}, form_class: "dislike_reply_form" %>
-        <span id="reply<%=reply.id%>_points"><%= reply.total_votes %> Points</span>
+          <div id="replies-for-comment-<%=comment.id%>">
+          <%= button_to 'Like', {action: 'voteup', controller: 'replies', name: "#{reply.id}"}, form_class: "like_reply_form"  %>
+          <%= button_to 'Dislike', {action: 'votedown', name: "#{reply.id}",controller: 'replies'}, form_class: "dislike_reply_form" %>
+          <span id="reply<%=reply.id%>_points"><%= reply.total_votes %></span> Points <br><br>
+          <li><%= reply.text %></li>
+          <li><%= reply.replier.username %></li>
         <% end %>
       </div>
       <% end %>
