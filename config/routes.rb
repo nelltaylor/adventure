@@ -28,8 +28,5 @@ Rails.application.routes.draw do
   resources :tags, except: :create
   post '/tags(.:name)' => 'tags#create'
 
-
-  resources :post_tags
-
   root 'posts#index'
 end
