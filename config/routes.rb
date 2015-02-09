@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   post '/replies/:id/voteup' => 'replies#voteup'
   post '/replies/:id/votedown' => 'replies#votedown'
 
-  resources :tags
+  resources :tags, except: :create
+  post '/tags(.:name)' => 'tags#create'
 
 
   resources :post_tags
