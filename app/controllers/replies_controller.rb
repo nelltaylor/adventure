@@ -7,11 +7,20 @@ class RepliesController < ApplicationController
   end
 
   def show
+
     @reply = Reply.new
   end
 
   def create
-    @reply = Reply.create(reply_params)
+    @comment = Comment.find(params[:name])
+    text = params[:reply][:text]
+    replier_id = current_user.id
+    @reply = Reply.create(text: text, replier_id: replier_id, comment_id: @comment.id)
+
+    respond_to do |format|
+      format.html { render json: {comment: @reply, user: current_user} }
+      format.json { render json: {comment: @reply, user: current_user} }
+    end
   end
 
   def voteup
@@ -40,7 +49,7 @@ class RepliesController < ApplicationController
 
  private
 
-  def reply_params
-    params.require(:reply).permit(:text, :replier_id)
-  end
+  # def reply_params
+  #   params.require(:reply).permit(:text, :replier_id)
+  # end
 end

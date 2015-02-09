@@ -1,4 +1,4 @@
-console.log("<%= j (params[:comment]) %>")
+// console.log("<%= j (params[:comment]) %>")
 $('#reply_link a').hide()
 $('#reply_form<%=params[:comment]%>').append("<%= j (render 'new') %>")
 
