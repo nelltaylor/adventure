@@ -1,5 +1,5 @@
 <div id='login-form'>
-<h1>Log In</h1>
+<h2>Log In</h2>
   <div id='errors'>
   </div>
 
@@ -9,6 +9,6 @@
     <%=label_tag :password %>
     <%=password_field_tag :password %><br>
     <%=submit_tag "Log in" %>
-  <%end%>
-  <%= link_to 'Sign Up', new_user_path %>
+  <%end%><br><br><br><br>
+  <div id="signup_link"><%= link_to 'Sign Up', new_user_path %></div>
 </div>

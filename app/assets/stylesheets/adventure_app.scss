@@ -27,3 +27,23 @@ h1 {
   text-align: center;
   margin-bottom: -2%;
 }
+
+#login_form {
+  padding: 2%;
+  line-height: 2em;
+  float: left;
+}
+
+#signup_form {
+  padding: 3%;
+  line-height: 4em;
+  float: left;
+}
+
+#signup_link a {
+  color: $orange;
+  padding: 2%;
+  float: left;
+  margin-top: 2%;
+  margin-left: -45%;
+}

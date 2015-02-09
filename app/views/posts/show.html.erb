@@ -10,10 +10,9 @@
     <div id="post_points"><%= @post.total_votes %> Points</div>
     <div id="tags"> Tags: <% @post.tags.each do |t| %>
       <span class="single-tag"><%= t.name %></span>
-      <% end %>
-    </div>
-    <div id="add_tags">
-      <%=link_to "Add tags", new_tag_path, remote:true %>
+      <% end %><span id="add_tags">
+      <%=link_to "Add Tag", new_tag_path, remote:true %>
+    </span>
     </div>
   </div>
 </div>

@@ -1,10 +1,7 @@
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
   <%=form_for User.new, remote: true, id: 'signup_form' do |f| %>
-    <%=f.label :username %>
-    <%=f.text_field :username %><br>
-    <%=f.label :email %>
-    <%=f.text_field :email %><br>
-    <%=f.label :password %>
-    <%=f.password_field :password %><br>
+    Username: <%=f.text_field :username %><br>
+    Email: <%=f.text_field :email %><br>
+    Paddword: <%=f.password_field :password %><br>
     <%=f.submit "Sign Up" %>
   <%end%>
