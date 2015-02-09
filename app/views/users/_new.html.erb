@@ -2,6 +2,6 @@
   <%=form_for User.new, remote: true, id: 'signup_form' do |f| %>
     Username: <%=f.text_field :username %><br>
     Email: <%=f.text_field :email %><br>
-    Paddword: <%=f.password_field :password %><br>
+    Password: <%=f.password_field :password %><br>
     <%=f.submit "Sign Up" %>
   <%end%>
