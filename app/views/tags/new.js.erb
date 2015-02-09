@@ -1,4 +1,4 @@
 $('#new-tag').show()
-$('#new-tag').html("<%= j(render 'new') %>");
+$('#new-tag').html("<%= j(render 'new', locals: {post: @post}) %>");
 
 
